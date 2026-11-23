@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+
+const links = [
+  { href: "/races/", label: "Races" },
+  { href: "/factions/", label: "Factions" },
+  { href: "/locations/", label: "Locations" },
+  { href: "/tags/", label: "Tags" },
+  { href: "/search/", label: "Search" },
+];
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body class="flex min-h-screen flex-col bg-stone-50 text-stone-900">
+    <header class="border-b border-stone-200 bg-white">
+      <nav class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 text-sm">
+        <a href="/" class="font-semibold">Warlords Universe</a>
+        {links.map((l) => (
+          <a
+            href={l.href}
+            aria-current={path.startsWith(l.href) ? "page" : undefined}
+            class={path.startsWith(l.href) ? "font-semibold" : "text-stone-600 hover:underline"}
+          >{l.label}</a>
+        ))}
+      </nav>
+    </header>
+    <slot />
+
+    <Footer />
+
+    <!-- script for pagefind  -->
+    <script is:inline>
+    document.addEventListener("keydown", (e) => {
+        const el = document.activeElement;
+        const typing = el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable);
+        const isSlash = e.key === "/" && !e.ctrlKey && !e.metaKey;
+        const isCtrlK = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k";
+        if (!(isSlash && !typing) && !isCtrlK) return;
+        e.preventDefault();
+        if (location.pathname !== "/search/") location.href = "/search/";
+        else document.querySelector(".pagefind-ui__search-input")?.focus();
+    });
+    </script>
+    <!-- end of pagefind script -->
+  </body>
+</html>

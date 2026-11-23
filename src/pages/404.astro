@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import { getPublished, types } from "../lib/content";
+import { typeLabels } from "../lib/entry";
+
+const all = await getPublished();
+const counts = types.map((type) => ({
+  type,
+  plural: typeLabels[type].plural,
+  count: all.filter((i) => i.type === type).length,
+}));
+---
+
+<Base title="Warlords Universe" description="Lore wiki for the Warlords Universe.">
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <h1 class="text-4xl font-bold">404 page not found</h1>
+    <h2>Try the search function</h2>
+    <p class="mt-3 max-w-prose text-stone-600">
+      The lore wiki. Browse by category below, or follow tags and links between entries.
+    </p>
+
+    <ul class="mt-8 grid gap-4 sm:grid-cols-3">
+      {counts.map((c) => (
+        <li>
+          <a href={`/${c.type}/`} class="block rounded border border-stone-200 bg-white p-4 hover:border-stone-400">
+            <span class="text-lg font-semibold">{c.plural}</span>
+            <span class="block text-sm text-stone-500">{c.count} {c.count === 1 ? "entry" : "entries"}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Base>

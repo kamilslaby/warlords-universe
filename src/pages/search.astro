@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Search">
+  <main class="mx-auto max-w-3xl px-4 py-8">
+    <h1 class="mb-6 text-3xl font-bold">Search</h1>
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+    <div id="search"></div>
+    <script is:inline>
+      window.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector("#search");
+        if (typeof PagefindUI === "undefined") {
+          el.textContent = "Search index not built yet. Run npm run build, then npm run preview.";
+          return;
+        }
+        new PagefindUI({ element: "#search", showSubResults: true, autofocus: true });
+      });
+    </script>
+  </main>
+</Base>

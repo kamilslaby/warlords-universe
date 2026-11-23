@@ -1,0 +1,32 @@
+---
+import Base from "../../layouts/Base.astro";
+import EntryList from "../../components/EntryList.astro";
+import { getPublished, types } from "../../lib/content";
+import { typeLabels } from "../../lib/entry";
+
+export async function getStaticPaths() {
+  const all = await getPublished();
+  return types.map((type) => ({
+    params: { type },
+    props: { items: all.filter((i) => i.type === type) },
+  }));
+}
+
+const { type } = Astro.params;
+const { items } = Astro.props;
+const label = typeLabels[type as string];
+---
+
+<Base title={label.plural}>
+  <main class="mx-auto max-w-5xl px-4 py-8">
+    <nav aria-label="Breadcrumb" class="mb-4 text-sm text-stone-500">
+      <a href="/" class="hover:underline">Home</a>
+      <span class="mx-1">/</span>
+      <span>{label.plural}</span>
+    </nav>
+    <h1 class="text-3xl font-bold">{label.plural}</h1>
+    <div class="mt-6">
+      {items.length === 0 ? <p class="text-stone-500">No entries yet.</p> : <EntryList items={items} />}
+    </div>
+  </main>
+</Base>

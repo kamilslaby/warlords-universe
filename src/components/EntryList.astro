@@ -1,0 +1,37 @@
+---
+import { typeLabels } from "../lib/entry";
+import { tagUrl } from "../lib/content";
+
+interface Item {
+  title: string;
+  url: string;
+  type: string;
+  entry: { data: { summary?: string; tags: string[] } };
+}
+interface Props {
+  items: Item[];
+  showType?: boolean;
+}
+const { items, showType = false } = Astro.props;
+---
+
+<ul class="divide-y divide-stone-200 rounded border border-stone-200 bg-white">
+  {items.map((item) => (
+    <li class="p-4">
+      <a href={item.url} class="text-lg font-semibold hover:underline">{item.title}</a>
+      {showType && (
+        <span class="ml-2 text-sm text-stone-500">{typeLabels[item.type].singular}</span>
+      )}
+      <p class="mt-1 text-stone-600">{item.entry.data.summary}</p>
+      {item.entry.data.tags.length > 0 && (
+        <ul class="mt-2 flex flex-wrap gap-1 text-sm">
+          {item.entry.data.tags.map((tag) => (
+            <li>
+              <a href={tagUrl(tag)} class="block rounded bg-stone-100 px-2 py-0.5 hover:bg-stone-200">{tag}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  ))}
+</ul>
