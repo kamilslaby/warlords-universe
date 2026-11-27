@@ -27,7 +27,10 @@ const makeCollection = (folder: string) =>
   });
 
 export const collections = {
-  races: makeCollection("races"),
+  champions: makeCollection("champions"),
   factions: makeCollection("factions"),
+  general: makeCollection("general"),
   locations: makeCollection("locations"),
+  races: makeCollection("races"),
+  bestiary: makeCollection("bestiary"),
 };

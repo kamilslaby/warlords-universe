@@ -1,0 +1,29 @@
+---
+const links = [
+    { href: "/general/", label: "General" },    
+    { href: "/races/", label: "Races" },
+    { href: "/factions/", label: "Factions" },
+    { href: "/champions/", label: "Champions" },
+    { href: "/bestiary/", label: "Bestiary" },
+    { href: "/locations/", label: "Locations" },
+    { href: "/tags/", label: "Tags" },
+    { href: "/search/", label: "Search" },
+];
+const path = Astro.url.pathname;
+---
+
+<div class="px-8 border-b border-stone-200 bg-white">
+    <div class="container mx-auto px-8 max-w-6xl py-1">
+    <nav class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 py-3 text-sm">
+        <a href="/" class="font-semibold">Warlords</a>
+        <a href="/">|</a>
+        {links.map((l) => (
+        <a
+            href={l.href}
+            aria-current={path.startsWith(l.href) ? "page" : undefined}
+            class={path.startsWith(l.href) ? "font-semibold" : "text-stone-600 hover:underline"}
+        >{l.label}</a>
+        ))}
+    </nav>
+    </div>
+</div>

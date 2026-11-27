@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 
 const CONTENT_DIR = path.resolve("content");
-const TYPE_FOLDERS = ["races", "factions", "locations"];
+const TYPE_FOLDERS = ["races", "factions", "locations", "general", "champions", "bestiary"];
 const WIKILINK = /\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]/g;
 const norm = (s) => String(s).trim().toLowerCase();
 const stripCode = (s) =>

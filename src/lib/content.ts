@@ -2,7 +2,7 @@ import { getCollection } from "astro:content";
 import { slug } from "github-slugger";
 import { titleOf } from "./entry";
 
-export const types = ["races", "factions", "locations"] as const;
+export const types = ["races", "factions", "locations", "general", "champions", "bestiary"] as const;
 
 export const tagUrl = (tag: string) => `/tags/${slug(tag)}/`;
 

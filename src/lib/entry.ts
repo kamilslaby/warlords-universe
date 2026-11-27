@@ -33,4 +33,7 @@ export const typeLabels: Record<string, { singular: string; plural: string }> = 
   races: { singular: "Race", plural: "Races" },
   factions: { singular: "Faction", plural: "Factions" },
   locations: { singular: "Location", plural: "Locations" },
+  general: { singular: "General", plural: "General" },
+  champions: { singular: "Champion", plural: "Champions" },
+  bestiary: { singular: "Bestiary", plural: "Bestiary" },
 };

@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import { titleOf } from "./entry";
 
-const types = ["races", "factions", "locations"] as const;
+export const types = ["races", "factions", "locations", "general", "champions", "bestiary"] as const;
 const WIKILINK = /\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]/g;
 const norm = (s: string) => s.trim().toLowerCase();
 const stripCode = (s: string) =>

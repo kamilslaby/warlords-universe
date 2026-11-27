@@ -4,11 +4,55 @@ import { getLastCommitDate } from "../lib/site";
 const year = new Date().getFullYear();
 const updated = getLastCommitDate();
 const updatedText = updated.toISOString().slice(0, 10);
+
+/* Copy the contains of the /components/navigation.astro below this comment */
+const links = [
+    { href: "/general/", label: "General" },    
+    { href: "/races/", label: "Races" },
+    { href: "/factions/", label: "Factions" },
+    { href: "/champions/", label: "Champions" },
+    { href: "/locations/", label: "Locations" },
+    { href: "/tags/", label: "Tags" },
+    { href: "/search/", label: "Search" },
+];
+const path = Astro.url.pathname;
+
+/* End of navigaiton part of thing  */ 
+
 ---
 
-<footer class="mt-auto border-t border-stone-200 bg-white">
-  <div class="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 px-4 py-6 text-sm text-stone-500">
-    <p>© {year} Kamil Slaby. Warlords Universe.</p>
-    <p>Last updated: <time datetime={updatedText}>{updatedText}</time></p>
+<footer class="mt-auto border-t border-stone-200 bg-white mt-16">
+  
+  <div class="container mx-auto max-w-6xl py-16 px-8">
+    <div>
+      
+    </div>
+    <div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-2 px-4 py-3 text-sm">
+          {links.map((l) => (
+          <a
+              href={l.href}
+              aria-current={path.startsWith(l.href) ? "page" : undefined}
+              class={path.startsWith(l.href) ? "" : "text-stone-600 hover:underline"}
+          >{l.label}</a>
+          ))}
+          <a href="/privacy-policy">Privacy policy</a>
+      </nav>
+    </div>
+    <div class="flex flex-wrap justify-between gap-2 py-6 text-sm">
+      <p>Warlods Universe</p>
+      <p>Last updated: <time datetime={updatedText}>{updatedText}</time></p>
+    </div>
+    <div class="max-w-sm pt-16 text-sm text-justify">
+      <span class="font-semibold">Copyright © {year} Kamil Slaby.</span>
+      <br>
+      This source code is publicly available for viewing purposes only.
+      No permission is granted to copy, modify, distribute,
+      sublicense, or commercially exploit this software
+      without prior written authorization from the copyright owner.
+      <br>
+      <a href="https://github.com/kamilslaby/warlords-universe" target="_blank" class="text-blue-500 underline">View it on Github</a>
+    </div>
   </div>
 </footer>
+

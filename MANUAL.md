@@ -1,8 +1,4 @@
-# Lore Wiki
-
-A public, text-first wiki for the lore of an original IP. Written in Obsidian, built with Astro, styled with Tailwind, searched with Pagefind. Static site, single author, English only.
-
-This file is the manual: how the project works, how to do the common jobs, and what to check when something breaks. For the original goals and scope, see `REQUIREMENTS.md`.
+# Manual
 
 ## Contents
 
@@ -199,7 +195,7 @@ Categories are currently listed in several files. Doing all of them keeps everyt
 6. `src/lib/links.ts`: add `"items"` to its `types` list.
 7. `src/lib/entry.ts`: add `items: { singular: "Item", plural: "Items" }` to `typeLabels`.
 8. `src/pages/[type]/[slug].astro`: add `"items"` to the `types` list inside `getStaticPaths`.
-9. `src/layouts/Base.astro`: add `{ href: "/items/", label: "Items" }` to `links` (this is what puts it in the navbar).
+9. `src/components/navigation.astro` to update navbar
 
 Restart `npm run dev`, then run `npm run validate`. If you skip a step:
 

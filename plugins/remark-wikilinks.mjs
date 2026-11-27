@@ -5,7 +5,7 @@ import { slug } from "github-slugger";
 import { visit } from "unist-util-visit";
 
 const CONTENT_DIR = path.resolve("content");
-const TYPE_FOLDERS = { races: "races", factions: "factions", locations: "locations" };
+const TYPE_FOLDERS = { races: "races", factions: "factions", locations: "locations", champions: "champions", general: "general", bestiary: "bestiary"};
 const WIKILINK = /\[\[([^\]|#]+)(?:#([^\]|]+))?(?:\|([^\]]+))?\]\]/g;
 const norm = (s) => String(s).trim().toLowerCase();
 
