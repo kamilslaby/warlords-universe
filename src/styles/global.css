@@ -18,3 +18,11 @@
     font-optical-sizing: auto;
   }
 }
+
+a {
+  text-decoration: underline;
+  color: #2563eb;
+}
+a:hover {
+  text-decoration: none;
+}
