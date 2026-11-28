@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import { getPublished, types } from "../lib/content";
+import { typeLabels } from "../lib/entry";
+
+const all = await getPublished();
+const counts = types.map((type) => ({
+  type,
+  plural: typeLabels[type].plural,
+  count: all.filter((i) => i.type === type).length,
+}));
+---
+
+<Base title="Warlords Universe" description="Lore wiki for the Warlords Universe.">
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <div class="prose text-justify">
+        <h1>About</h1>
+        <h2>Getting Started</h2>
+        <p>
+            Welcome to the Warlords Universe (Work In Progress Name), an original fictional universe created by Kamil Slaby.
+            <br><br>
+            This website serves as a digital lorebook and a central source of information about the universe, its history, civilizations, factions, characters, and mysteries.The project is actively being developed and is still in its early stages. Much of the information is subject to change as the world evolves.
+            <br><br>
+            Feel free to explore the wiki, discover the world, and immerse yourself in its lore. Best to start with: <a href="/general/overview-of-the-world/">Overview of the World</a>
+            <br><br>
+            I hope it sparks your curiosity - I would love to hear your thoughts and feedback. Write me here: <a href="mailto:kamil@superior-studios.com">contact@superior-studios.com</a>
+        </p>
+        <p>
+            If you want more behind the scenes look read: <a href="/about">About the vision for the project and about the Author</a>
+        </p>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,50 @@
+---
+import Base from "../layouts/Base.astro";
+import { getPublished, types } from "../lib/content";
+import { typeLabels } from "../lib/entry";
+
+const all = await getPublished();
+const counts = types.map((type) => ({
+  type,
+  plural: typeLabels[type].plural,
+  count: all.filter((i) => i.type === type).length,
+}));
+---
+
+<Base title="Warlords Universe" description="Lore wiki for the Warlords Universe.">
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <div class="prose text-justify">
+        <h1>About</h1>
+        <h2>Grand vision</h2>
+        <p>
+            I have been a creative person my whole life. My main passion is music. I compose my own original music and work as an audio engineer. On the side, I have explored many different creative fields throughout the years: drawing, writing fiction, creating artwork, and writing poetry. However, I have always treated each field separately.
+            <br><br>
+            When I compose music, I don't experience synesthesia, but I do imagine cinematic landscapes and scenes when I hear certain sounds. Sometimes, I also "feel" temperature or wind. I don't know exactly how to explain it, but when I play the right chord on the right synth, I can almost feel the cold air on my face. That's when my creativity is triggered, and I begin to enter a state of flow. (For anyone wondering, I wasn't born this way. I developed this ability over 10 years of teaching myself how to make music.)
+            <br><br>
+            So, around 2024, I began wondering: what if I could connect all these seemingly disconnected creative fields to sustain that feeling of inspiration? That's when I came up with the idea that it would be easier for me to stay inspired if all these elements were part of a fictional world.
+            <br><br>
+            In other words, I decided to build an original IP and bring all my creative projects together within its universe. Music, poetry, drawing, games, and anything else I create will have a place there. If this never brings me any success, that's fine (although I highly doubt it).
+            <br><br>
+            If you are reading this now, you are still early and among the pioneers. If you decide to stay, I truly believe this will be the beginning of a lasting relationship between you and me.
+        </p>
+        <h2>About the Author</h2>
+        <p>
+            Kamil Słaby was born in 1997 Warsaw, Poland. To a lower class family. From a young age, he was heavily interested in video games and various forms of media depicting futuristic visions of sci-fi and dystopian worlds. His creative interests initially took the form of an ambition to become an architect. That is why he started attending extra art classes after school to learn how to draw.
+            <br><br>
+            During his early teenage years, Kamil spent thousands of hours playing video games, mainly RPGs and immersive sims. Around 2015, his passion for story driven worlds was complemented by poetry writing. This eventually led him to consider writing a novel and, as a byproduct, creating an original sci-fi universe to serve as the setting for its story.
+            <br><br>
+            Those novels and stories were ultimately never finished. However, the ideas for the characters and the world remained. Through years of iterations, they slowly began to take shape and develop their own identity.
+            <br><br>
+            In 2024, while building a creative studio as a mixing enginner and music artist, Kamil decided to start learning game development and programming. He wanted to pursue another creative path, partly to clear his head from the stress and pressure.
+            <br><br>
+            He believed so strongly in his vision that, without ever having written the game development equivalent of a "Hello World" program, he registered as a Steam partner and paid the fee, despite being financially broke.
+            <br><br>
+            Eager to make it, he began sketching out a few ideas. He envisioned something that would serve as a love letter to Im-Sim games built around freedom of choise choices. Again, none of those plans came to life. The challenges and hardships of everyday life got in the way.
+            <br><br>
+            In 2026, approaching his 30th birthday, Kamil decided not to give up on his creativity. Instead, he began organizing his ideas and bringing everything together into this worldbook. So later he can at least try to make a game.
+            <br><br>
+            The rest is happening now.
+        </p>
+    </div>
+  </main>
+</Base>
