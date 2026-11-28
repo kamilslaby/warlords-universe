@@ -19,10 +19,18 @@
   }
 }
 
-a {
+.regular-link {
   text-decoration: underline;
   color: #2563eb;
 }
-a:hover {
+.regular-link:hover {
+  text-decoration: none;
+}
+
+.footer-link {
+  text-decoration: underline;
+  color: #2563eb;
+}
+.footer-link:hover {
   text-decoration: none;
 }
