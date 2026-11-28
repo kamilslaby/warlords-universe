@@ -6,12 +6,12 @@ const updated = getLastCommitDate();
 const updatedText = updated.toISOString().slice(0, 10);
 
 ---
-<div class="py-16 lg:py-32 bg-stone-100 px-8">
+<div class="py-32 bg-stone-950 text-stone-100 px-8">
   <div class="container mx-auto max-w-6xl">
     <h2 class="text-4xl pb-4 font-semibold">Want to see more?</h2>
     <h3 class="text-xl">Help us bring this universe to life by becoming a patron.</h3>
     <br>
-    <a href="https://www.patreon.com/c/kamilslaby/membership" target="_blank" class="py-2 px-8 rounded borded text-white! font-bold bg-black text-de">Support Us on Patreon</a>
+    <a href="https://www.patreon.com/c/kamilslaby/membership" target="_blank" class="py-2 px-8 bg-orange-600 rounded borded text-white! font-bold bg-black text-de no-underline! transition duration-300 ease-in-out border border-orange-400 hover:bg-orange-950">Support Us on Patreon</a>
     <br><br>
     <p class="text-sm max-w-xl text-justify">
       Every contribution, whether a single donation or monthly support, makes a real difference. Your support gives us more resources to expand the universe, create new experiences, and turn ambitious ideas into reality.
@@ -25,7 +25,7 @@ const updatedText = updated.toISOString().slice(0, 10);
       <nav>
         <h4 class="font-bold">Main /</h4>
         <ul>
-          <li><a href="/general">Homepage</a></li>
+          <li><a href="/">Homepage</a></li>
           <li><a href="/getting-started">Getting Started</a></li>
           <li><a href="/about">About the project</a></li>
           <li><a href="https://www.kamilslaby.com/blog">Blog</a></li>
@@ -47,17 +47,17 @@ const updatedText = updated.toISOString().slice(0, 10);
           <li><a href="/tags/">Tags</a></li>
           <li><a href="/search/">Search</a></li>
           <li><a href="/privacy-policy">Privacy policy</a></li>
-          <li><a href="https://github.com/kamilslaby/warlords-universe/commits/main/" target="_blank">Commits Changes</a></li>
+          <li><a href="https://github.com/kamilslaby/warlords-universe/commits/main/" target="_blank">Commits history</a></li>
         </ul>
       </nav>
     </div>
     <!-- end of grid div -->
 
-    <div class="pt-4 text-xs border-t border-stone-200">
+    <div class="pt-4 text-xs border-t border-stone-300">
       <div class="pb-4 text-justify">
         <span class="font-semibold">Copyright © {year} Kamil Slaby.</span> - This source code is publicly available for viewing purposes only. No permission is granted to copy, modify, distribute,         sublicense, or commercially exploit this software without prior written authorization from the copyright owner - <a href="https://github.com/kamilslaby/warlords-universe" target="_blank" class="text-blue-500 underline">View it on Github</a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 border-t border-stone-200 pt-4">
         <p>Website by <a href="https://superior-studios.com/">Superior Studios</a></p>
         <p class="md:text-right">Last updated: <time datetime={updatedText}>{updatedText}</time></p>
       </div>
